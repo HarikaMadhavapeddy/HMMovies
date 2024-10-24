@@ -1,0 +1,27 @@
+.dashboard_container{
+    height: 70vh;
+    width: 100vw;
+
+}
+.dashboard_container_movies{
+    text-align: center;
+    margin-top: 40px;
+}
+.dashboard_container_movies_img{
+    width: 1000px;
+}
+.dashboard_container_movies_slider{
+    width: 30px;
+    height: 10px;
+    background-color: grey;
+    margin: 20px 10px;
+    border-radius: 5px;
+}
+.active{
+    background-color: white;
+}
+.dashboard_container_movies_slider_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
