@@ -14,7 +14,7 @@ export default function Slider({ source, title }) {
     instance
       .get(source)
       .then(function (response) {
-        console.log(response.data);
+        console.log(title,response.data);
         setData(response.data.results);
       })
       .catch(function (error) {
