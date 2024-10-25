@@ -30,12 +30,12 @@ export default function Slider({ source, title }) {
       <h2>{title}</h2>
       <div className="slider_container_movies">
         {data.map((movie) => (
-          <Link className="slider_container_movies_link" to={`${movie.title}`}><div className="slider_container_movies_single">
+          <Link className="slider_container_movies_link" to={`${movie.title|| movie.original_title|| movie.name||movie.original_name}`}><div className="slider_container_movies_single">
           <img
             className="slider_container_movies_img"
             src={`${base_url}${movie.backdrop_path}`}
           />
-          <span>{movie.title || movie.original_title}</span>
+          <span>{movie.title || movie.original_title|| movie.name||movie.original_name }</span>
         </div></Link>
           
         ))}

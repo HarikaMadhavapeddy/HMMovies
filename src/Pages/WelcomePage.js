@@ -53,14 +53,14 @@ export default function WelcomePage() {
             <div className="dashboard_container_movies">
               <Link
                 className="dashboard_container_movies_link"
-                to={`${data[dashboardLength]?.title}`}
+                to={`${data[dashboardLength]?.title||data[dashboardLength]?.original_title|| data[dashboardLength]?.name||data[dashboardLength]?.original_name}`}
               >
                 <div className="dashboard_container_movies_single">
                   <img
                     className="dashboard_container_movies_img"
                     src={`${base_url}${data[dashboardLength]?.backdrop_path}`}
                   />
-                  <span className="dashboard_container_movies_title">{`${data[dashboardLength]?.title}`}</span>
+                  <span className="dashboard_container_movies_title">{`${data[dashboardLength]?.title||data[dashboardLength]?.original_title|| data[dashboardLength]?.name||data[dashboardLength]?.original_name}`}</span>
                 </div>
               </Link>
               <div className="dashboard_container_movies_slider_container">
