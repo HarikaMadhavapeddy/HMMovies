@@ -60,6 +60,7 @@ export default function WelcomePage() {
                     className="dashboard_container_movies_img"
                     src={`${base_url}${data[dashboardLength]?.backdrop_path}`}
                   />
+                  <span className="dashboard_container_movies_title">{`${data[dashboardLength]?.title}`}</span>
                 </div>
               </Link>
               <div className="dashboard_container_movies_slider_container">

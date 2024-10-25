@@ -3,6 +3,7 @@ import "./NavBar.css";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../Firebase/Firebase";
+import logo from '../assests/HMmovies.png'
 
 export default function NavBar({ user }) {
   const Navigate = useNavigate();
@@ -16,7 +17,7 @@ export default function NavBar({ user }) {
   }
   return (
     <div className="NavBar_conatiner">
-      <div style={{ color: "white" }}>Logo</div>
+      <div style={{ color: "white" }}><img src={logo}/></div>
       <div>
         {user ? (
           <button onClick={handleLogout}>Logout</button>

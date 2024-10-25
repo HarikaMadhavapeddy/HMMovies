@@ -7,8 +7,23 @@
     text-align: center;
     margin-top: 40px;
 }
+.dashboard_container_movies_single{
+    position: relative;
+}
 .dashboard_container_movies_img{
-    width: 1000px;
+    width: 1100px;
+    
+}
+.dashboard_container_movies_title{
+position: absolute;
+left:200px;
+bottom:0;
+width:1100px;
+color: aliceblue;
+font-size: 30px;
+font-weight: 600;
+background-color: black;
+opacity: 0.5;
 }
 .dashboard_container_movies_slider{
     width: 30px;

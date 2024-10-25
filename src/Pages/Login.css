@@ -1,0 +1,39 @@
+.Login_container{
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.Login_container input{
+    width: 300px;
+    padding: 10px 10px;
+    margin: 10px;
+}
+.Login_container_button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+.Login_container button{
+margin-left: 70px;
+padding: 5px 15px;
+font-weight: 700;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+.Login_container_icon{
+    color: aliceblue;
+    font-size: 50px;
+    margin-bottom: 50px;
+    border: solid 1px white;
+    padding: 15px 15px;
+    border-radius: 50%;
+}
+.Login_container_button_link{
+    color: white;
+}

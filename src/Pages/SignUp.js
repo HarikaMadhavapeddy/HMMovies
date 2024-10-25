@@ -6,6 +6,8 @@ import React, { useState } from "react";
 import { auth } from "../Firebase/Firebase";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import "./SignUp.css";
+import { FaUser } from "react-icons/fa";
 //import { RecaptchaVerifier } from "firebase/auth";
 
 export default function SignUp() {
@@ -13,9 +15,10 @@ export default function SignUp() {
     email: "",
     pwd: "",
     cpwd: "",
-    phone: '',
+    phone: "",
+    error: false,
   });
-  const [confirmationResult, setConfirmationResult]=useState(null);
+  const [confirmationResult, setConfirmationResult] = useState(null);
   const Navigate = useNavigate();
   /*function setUpCaptcha() {
     window.recaptchaVerifier = new RecaptchaVerifier(
@@ -37,14 +40,19 @@ confirmationResult.confirm('1234567').then(()=>console.log('success')).catch(()=
 
   function handleSignup() {
     //basic validation, required values
-   createUserWithEmailAndPassword(auth, inputData.email, inputData.pwd)
-      .then(()=>{
-        Navigate('/dashboard');
-        toast.success('user created successfully');
-      })
-      .catch((error)=>toast.error(error.message));
+    if (inputData.pwd !== inputData.cpwd) {
+      setInputData({...inputData,error:true});
+    } else {
+      setInputData({...inputData,error:false});
+      createUserWithEmailAndPassword(auth, inputData.email, inputData.pwd)
+        .then(() => {
+          Navigate("/dashboard");
+          toast.success("user created successfully");
+        })
+        .catch((error) => toast.error(error.message));
+    }
 
-     /*setUpCaptcha();
+    /*setUpCaptcha();
     signInWithPhoneNumber(auth, '+1 4699435968', window.recaptchaVerifier)
       .then((response) => {
         console.log("sms is sent");
@@ -54,20 +62,21 @@ confirmationResult.confirm('1234567').then(()=>console.log('success')).catch(()=
   }
 
   return (
-    <div>
+    <div className="signup_container">
+      <FaUser className="signup_container_icon" />
       <input
         type="email"
         value={inputData.email}
-        placeholder="enter email address"
+        placeholder="Enter email address"
         onChange={(event) =>
           setInputData({ ...inputData, email: event.target.value })
         }
       />
-      
+
       <input
         type="password"
         value={inputData.pwd}
-        placeholder="enter password"
+        placeholder="Enter password"
         onChange={(event) =>
           setInputData({ ...inputData, pwd: event.target.value })
         }
@@ -75,11 +84,12 @@ confirmationResult.confirm('1234567').then(()=>console.log('success')).catch(()=
       <input
         type="password"
         value={inputData.cpwd}
-        placeholder="confirm password"
+        placeholder="Confirm password"
         onChange={(event) =>
           setInputData({ ...inputData, cpwd: event.target.value })
         }
       />
+      {inputData.error && <p>Password and confirm password should be same</p>}
       {/* 
       <input
         type="number"
